@@ -8,21 +8,21 @@ using VendingMachine.repository;
 
 namespace VendingMachine.dto
 {
-    internal class Kex : ProductRepository
+    public class Kex : ProductRepository
     {
-        private string productName = "Kex";
-        private int productPrice = 15;
+        public string productName { get; set; }
+        public int productPrice { get; set; }
 
-    public Kex(string productName, int productPrice)
+        public Kex(string productName, int productPrice)
         {
-            this.productName = productName;
-            this.productPrice = productPrice;
+            this.productName = "Kex";
+            this.productPrice = 22;
         }
 
 
         public override void Examine()
         {
-            Console.WriteLine("chocolate bar - 15sek");
+            Console.WriteLine("chocolate bar - 22sek");
         }
 
         public override void Use()

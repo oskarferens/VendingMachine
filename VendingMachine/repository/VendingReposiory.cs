@@ -8,11 +8,11 @@ using VendingMachine.dto;
 
 namespace VendingMachine.repository
 {
-    internal interface VendingReposiory
+    public interface VendingReposiory
     {
-        protected void Purchase();
-        protected void ShowAll();
-        protected void InsertMoney(int money);
-        protected void EndTransaction();
+        public void Purchase();
+        public void ShowAll();
+        public void InsertMoney(int money);
+        public void EndTransaction();
     }
 }

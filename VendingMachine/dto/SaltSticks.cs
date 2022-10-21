@@ -7,20 +7,20 @@ using VendingMachine.repository;
 
 namespace VendingMachine.dto
 {
-    internal class SaltSticks : ProductRepository
+    public class SaltSticks : ProductRepository
     {
-        private string productName;
-        private int productPrice;
+        public string productName { get; set; }
+        public int productPrice { get; set; }
 
         public SaltSticks(string productName, int productPrice)
         {
-            this.productName = productName;
-            this.productPrice = productPrice;
+            this.productName = "SaltSticks";
+            this.productPrice = 56;
         }
 
         public override void Examine()
         {
-            Console.WriteLine("Salty snack - 10sek");
+            Console.WriteLine("Salty snack - 56sek");
         }
 
         public override void Use()

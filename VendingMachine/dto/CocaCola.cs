@@ -7,15 +7,15 @@ using VendingMachine.repository;
 
 namespace VendingMachine.dto
 {
-    internal class CocaCola : ProductRepository
+    public class CocaCola : ProductRepository
     {
-        private string productName;
-        private int productPrice;
+        public string productName { get; set; }
+        public int productPrice { get; set; }
 
         public CocaCola(string productName, int productPrice)
         {
-            this.productName = productName;
-            this.productPrice = productPrice;
+            this.productName = "Cocacola";
+            this.productPrice = 8;
         }
 
         public override void Examine()

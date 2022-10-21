@@ -12,13 +12,13 @@ using VendingMachine.repository;
 
 namespace VendingMachine.service
 {
-    internal class VendingMachineService : VendingReposiory
+    public class VendingMachineService : VendingReposiory
     {
-        Kex kex;
+        Kex kex = new Kex("Kex", 22);
         CocaCola cocacola = new CocaCola("CocaCola", 8);
-        SaltSticks saltSticks = new SaltSticks("Salt Sticks", 10);
+        SaltSticks saltSticks = new SaltSticks("SaltSticks", 56);
         List<int> moneyDeposit = new List<int>();
-        List<Object> cartList = new List<Object>();
+        int productPrice = 0;
 
         public void PrintMenu()
         {
@@ -35,15 +35,15 @@ namespace VendingMachine.service
 
         public void ShowAll()
         {
-
-            Console.WriteLine(kex);
-            Console.WriteLine(cocacola);
-            Console.WriteLine(saltSticks);
+            
+            Console.WriteLine(cocacola.productName);
+            Console.WriteLine(cocacola.productName);
+            Console.WriteLine(saltSticks.productName);
         }
 
         public void InsertMoney(int money)
         {
-            Console.WriteLine("Write the amount you wan to put");
+            Console.WriteLine("Write the amount you want to put");
             Console.WriteLine("Available denominations 1kr, 5kr, 10kr, 20kr, 50kr, 100kr, 500kr, 1000kr");
             money = Convert.ToInt32(Console.ReadLine());
             switch (money)
@@ -78,22 +78,28 @@ namespace VendingMachine.service
             }
         }
 
-        public void PickTheProduct(int userInput)
+        public void PickTheProduct(int userChoice)
         {
             Console.WriteLine(" Press 1 for Kex \n Press 2 for CocaCola \n Press 3 for Salt Sticks");
-            userInput = Convert.ToInt32(Console.ReadLine());
+            userChoice = Convert.ToInt32(Console.ReadLine());
 
-            if (userInput == 1)
+            if (userChoice == 1)
             {
-                cartList.Add(15);
+                productPrice = kex.productPrice;
+                kex.Examine();
+                kex.Use();
             } 
-            else if (userInput == 2)
+            else if (userChoice == 2)
             {
-                cartList.Add(8);
+                productPrice = cocacola.productPrice;
+                cocacola.Examine();
+                cocacola.Use();
             } 
-            else if (userInput == 3)
+            else if (userChoice == 3)
             {
-                cartList.Add(10);
+                productPrice = saltSticks.productPrice;
+                saltSticks.Examine();
+                saltSticks.Use();
             } 
             else
             {
@@ -103,9 +109,8 @@ namespace VendingMachine.service
 
         public void Purchase()
         {
-            int moneyTotal = moneyDeposit.Count;
-            int moneyNeeded = cartList.Count;
-            Controller controller = new Controller();
+            int moneyTotal = moneyDeposit.Sum();
+            int moneyNeeded = productPrice;
 
             if (moneyNeeded > moneyTotal)
             {
@@ -113,14 +118,15 @@ namespace VendingMachine.service
             } 
             else if (moneyNeeded < moneyTotal)
             {
-                Console.WriteLine("Here is your rest: " + (moneyTotal - moneyNeeded) + "sek.");
-                EndTransaction();
+                Console.WriteLine("You'll get back: " + (moneyTotal - moneyNeeded) + "sek.");
+                Console.WriteLine("Press 4 to confirm transaction");
             }
         }
 
         public void EndTransaction()
         {
-            Console.WriteLine("Thank you and welcome again!");
+            moneyDeposit.Clear();
+            Console.WriteLine("Complete! Thank you and welcome again!");
         }
 
         public void showSaldo ()

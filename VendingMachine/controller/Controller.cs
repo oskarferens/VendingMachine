@@ -29,6 +29,7 @@ namespace VendingMachine.controller
                 else if (userInput == 3)
                 {
                     service.PickTheProduct(userInput);
+                    service.Purchase();
                 }
                 else if (userInput == 4)
                 {
