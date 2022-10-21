@@ -7,25 +7,19 @@ using VendingMachine.repository;
 
 namespace VendingMachine.dto
 {
-    public class CocaCola : ProductRepository
+    public class CocaCola : Product
     {
-        public string productName { get; set; }
-        public int productPrice { get; set; }
+        public CocaCola(string name, int price, string description) : base(name, price, description) { }
 
-        public CocaCola(string productName, int productPrice)
+        public override void Examine(Product product)
         {
-            this.productName = "Cocacola";
-            this.productPrice = 8;
+            Console.WriteLine($"{product.Name}, {product.Price} sek, {product.Description}");
         }
 
-        public override void Examine()
+        public override void Use(Product product)
         {
-            Console.WriteLine("Can of soda - 8sek");
-        }
 
-        public override void Use()
-        {
-            Console.WriteLine("Shake, open, sip");
+            Console.WriteLine($"{product.Name} - Enjoy your drink!");
         }
     }
 }

@@ -8,26 +8,20 @@ using VendingMachine.repository;
 
 namespace VendingMachine.dto
 {
-    public class Kex : ProductRepository
+    public class Kex : Product
     {
-        public string productName { get; set; }
-        public int productPrice { get; set; }
 
-        public Kex(string productName, int productPrice)
+        public Kex(string name, int price, string description) : base(name, price, description) { }
+
+        public override void Examine(Product product)
         {
-            this.productName = "Kex";
-            this.productPrice = 22;
+            Console.WriteLine($"{product.Name}, {product.Price} sek, {product.Description}");
         }
 
-
-        public override void Examine()
+        public override void Use(Product product)
         {
-            Console.WriteLine("chocolate bar - 22sek");
-        }
 
-        public override void Use()
-        {
-            Console.WriteLine("Open and eat");
+            Console.WriteLine($"{product.Name} - Enjoy your snack!");
         }
     }
 }

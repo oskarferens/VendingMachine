@@ -14,13 +14,13 @@ namespace VendingMachine.service
 {
     public class VendingMachineService : VendingReposiory
     {
-        Kex kex = new Kex("Kex", 22);
-        CocaCola cocacola = new CocaCola("CocaCola", 8);
-        SaltSticks saltSticks = new SaltSticks("SaltSticks", 56);
-        List<int> moneyDeposit = new List<int>();
-        int productPrice = 0;
+        private readonly int[] moneyDenominations = { 1000, 500, 100, 50, 20, 10, 5, 1 };
+        public List<Product> Products = new();
+        public int moneyDeposit { get; set; }
+        public int productPrice = 0;
 
-        public void PrintMenu()
+
+    public void PrintMenu()
         {
             Console.WriteLine("Enter your selection: ");
             Console.WriteLine("1 - show available products");
@@ -29,16 +29,24 @@ namespace VendingMachine.service
             Console.WriteLine("4 - finalize order");
             Console.WriteLine("0 - QUIT.");
             Console.WriteLine("");
-            Console.WriteLine("Saldo: ");
-            showSaldo();
+            Console.WriteLine("Saldo: " + moneyDeposit);
+        }
+
+        public void FillTheMachine()
+        {
+            Products.Add(new Kex("Kex", 22, "Chocolate bar"));
+            Products.Add(new CocaCola("CocaCola", 15, "A can of soda "));
+            Products.Add(new SaltSticks("Salted Sticks", 56, "Small baked pretzels"));
         }
 
         public void ShowAll()
         {
-            
-            Console.WriteLine(cocacola.productName);
-            Console.WriteLine(cocacola.productName);
-            Console.WriteLine(saltSticks.productName);
+            for (int i = 0; i < Products.Count; i++)
+            {
+                Products[i].Examine(Products[i]);
+            }
+            Console.WriteLine();
+
         }
 
         public void InsertMoney(int money)
@@ -49,29 +57,21 @@ namespace VendingMachine.service
             switch (money)
             {
                 case (1):
-                    moneyDeposit.Add(1);
-                    break;
+                    moneyDeposit = moneyDeposit + 1; break;
                 case (5):
-                    moneyDeposit.Add(5);
-                    break;
+                    moneyDeposit = moneyDeposit + 5; break;
                 case (10):
-                    moneyDeposit.Add(10);
-                    break;
+                    moneyDeposit = moneyDeposit + 10; break;
                 case (20):
-                    moneyDeposit.Add(20);
-                    break;
+                    moneyDeposit = moneyDeposit + 20; break;
                 case (50):
-                    moneyDeposit.Add(50);
-                    break;
+                    moneyDeposit = moneyDeposit + 50; break;
                 case (100):
-                    moneyDeposit.Add(100);
-                    break;
+                    moneyDeposit = moneyDeposit + 100; break;
                 case (500):
-                    moneyDeposit.Add(500);
-                    break;
+                    moneyDeposit = moneyDeposit + 500; break;
                 case (1000):
-                    moneyDeposit.Add(1000);
-                    break;
+                    moneyDeposit = moneyDeposit + 1000; break;
                 default:
                     Console.WriteLine("Invalid Entry");
                     break;
@@ -85,21 +85,15 @@ namespace VendingMachine.service
 
             if (userChoice == 1)
             {
-                productPrice = kex.productPrice;
-                kex.Examine();
-                kex.Use();
+                productPrice = Products[0].Price;
             } 
             else if (userChoice == 2)
             {
-                productPrice = cocacola.productPrice;
-                cocacola.Examine();
-                cocacola.Use();
+                productPrice = Products[1].Price;
             } 
             else if (userChoice == 3)
             {
-                productPrice = saltSticks.productPrice;
-                saltSticks.Examine();
-                saltSticks.Use();
+                productPrice = Products[2].Price;
             } 
             else
             {
@@ -109,31 +103,32 @@ namespace VendingMachine.service
 
         public void Purchase()
         {
-            int moneyTotal = moneyDeposit.Sum();
-            int moneyNeeded = productPrice;
-
-            if (moneyNeeded > moneyTotal)
+            if (productPrice == moneyDeposit)
             {
-                Console.WriteLine("Set " + (moneyNeeded - moneyTotal) + "sek more.");
+                Console.WriteLine("You'll get back: " + (moneyDeposit - productPrice) + "sek.");
+                Console.WriteLine("Press 4 to confirm transaction");
+            }
+            else if (productPrice > moneyDeposit)
+            {
+                Console.WriteLine("Set " + (productPrice - moneyDeposit) + "sek more.");
             } 
-            else if (moneyNeeded < moneyTotal)
+            else if (productPrice < moneyDeposit)
             {
-                Console.WriteLine("You'll get back: " + (moneyTotal - moneyNeeded) + "sek.");
+                Console.WriteLine("You'll get back: " + (moneyDeposit - productPrice) + "sek.");
                 Console.WriteLine("Press 4 to confirm transaction");
             }
         }
 
         public void EndTransaction()
         {
-            moneyDeposit.Clear();
-            Console.WriteLine("Complete! Thank you and welcome again!");
-        }
-
-        public void showSaldo ()
-        {
-            int sum = 0;
-            sum = moneyDeposit.Sum();
-            Console.WriteLine(sum);
+            if (moneyDeposit >= productPrice)
+            {
+                Console.WriteLine("Complete! Thank you and welcome again!");
+                
+            } else
+            {
+                Console.WriteLine("Can't finalize transaction. Not enough founds");
+            }
         }
     }
 }

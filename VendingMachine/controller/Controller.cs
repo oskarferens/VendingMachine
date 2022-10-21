@@ -13,6 +13,7 @@ namespace VendingMachine.controller
         public static void StartApplication()
         {
             VendingMachineService service = new VendingMachineService();
+            service.FillTheMachine();
             bool working = true;
             while (working)
             {
