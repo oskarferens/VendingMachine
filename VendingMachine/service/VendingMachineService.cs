@@ -60,7 +60,6 @@ namespace VendingMachine.service
             {
                 Console.Clear();
                 Console.WriteLine("Your saldo is: " + moneyDeposit);
-                
                 Console.WriteLine("Write the amount you want to put or press 0 to get back to menu.");
                 Console.WriteLine("Available denominations 1kr, 5kr, 10kr, 20kr, 50kr, 100kr, 500kr, 1000kr");
                 money = Convert.ToInt32(Console.ReadLine());
@@ -69,21 +68,21 @@ namespace VendingMachine.service
                     case (0):
                         flag = false; break;
                     case (1):
-                        moneyDeposit = moneyDeposit + 1; break;
+                        UpdateAccount(1); break;
                     case (5):
-                        moneyDeposit = moneyDeposit + 5; break;
+                        UpdateAccount(5); break;
                     case (10):
-                        moneyDeposit = moneyDeposit + 10; break;
+                        UpdateAccount(10); break;
                     case (20):
-                        moneyDeposit = moneyDeposit + 20; break;
+                        UpdateAccount(20); break;
                     case (50):
-                        moneyDeposit = moneyDeposit + 50; break;
+                        UpdateAccount(50); break;
                     case (100):
-                        moneyDeposit = moneyDeposit + 100; break;
+                        UpdateAccount(100); break;
                     case (500):
-                        moneyDeposit = moneyDeposit + 500; break;
+                        UpdateAccount(500); break;
                     case (1000):
-                        moneyDeposit = moneyDeposit + 1000; break;
+                        UpdateAccount(1000); break;
                     default:
                         Console.WriteLine("Invalid Entry");
                         break;
@@ -93,7 +92,7 @@ namespace VendingMachine.service
 
         public void PickTheProduct(int userChoice)
         {
-            Console.WriteLine("Press number to chose the product");
+            Console.WriteLine("Press number to choose the product");
             Console.WriteLine("");
 
             for (int i = 0; i < Products.Count; i++)
@@ -144,7 +143,7 @@ namespace VendingMachine.service
         {
             int rest = moneyDeposit - productPrice;
 
-            if(moneyDeposit < productPrice)
+            if (moneyDeposit < productPrice)
             {
                 EndTransaction();
             } 
@@ -192,7 +191,15 @@ namespace VendingMachine.service
                 Console.WriteLine("Can't finalize the transaction. Not enough founds.");
                 Console.WriteLine("Machine returns " + moneyDeposit + "sek.");
                 Console.WriteLine("Try again");
+                
             }
+
         }
+        public void UpdateAccount(int amount)
+        {
+            moneyDeposit = moneyDeposit + amount;
+        }
+        
     }
 }
+ 

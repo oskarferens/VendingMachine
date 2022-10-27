@@ -15,25 +15,13 @@ namespace VendingMachineTest
         public void ShouldInsertMoney()
         {
             //GIVEN
-            bool flag = true;
             //WHEN
-            service.InsertMoney(100);
-            int result = service.moneyDeposit;
+            service.UpdateAccount(100);
 
             //THEN
-            Assert.Equal(100,result); 
+            Assert.Equal(100,service.moneyDeposit); 
         }
 
-        [Fact]
-        public void ShouldPickTheProduct()
-        {
-            //GIVEN
-            service.FillTheMachine();
-            //WHEN
-            service.PickTheProduct(2);
-            //THEN
-            Assert.Equal(24,service.Products[3].Price);
-        }
 
         [Fact]
         public void ShouldFillTheMachine()
@@ -45,16 +33,5 @@ namespace VendingMachineTest
             Assert.Equal(9,service.Products.Count);
         }
         
-        [Fact]
-        public void ShouldPurchase()
-        {
-            //GIVEN
-            service.moneyDeposit = 100;
-            service.productPrice = 52;
-            //WHEN
-            int result = service.Purchase();
-            //THEN
-            Assert.Equal(48,48);
-        }
     }
 }
