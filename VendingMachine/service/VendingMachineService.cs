@@ -147,7 +147,8 @@ namespace VendingMachine.service
             if(moneyDeposit < productPrice)
             {
                 EndTransaction();
-            } else
+            } 
+            else 
             {
                 int thousand = (rest / 1000);
                 int five_hundred = ((rest % 1000) / 500);
