@@ -7,9 +7,9 @@ using VendingMachine.repository;
 
 namespace VendingMachine.dto
 {
-    public class SaltSticks : Product
+    public class Snacks : Product
     {
-        public SaltSticks(string name, int price, string description) : base(name, price, description) { }
+        public Snacks(string name, int price, string description) : base(name, price, description) { }
 
         public override void Examine(Product product)
         {

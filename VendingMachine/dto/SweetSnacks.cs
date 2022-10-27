@@ -1,15 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using VendingMachine.repository;
 
 namespace VendingMachine.dto
 {
-    public class CocaCola : Product
+    public class SweetSnacks : Product
     {
-        public CocaCola(string name, int price, string description) : base(name, price, description) { }
+
+        public SweetSnacks(string name, int price, string description) : base(name, price, description) { }
 
         public override void Examine(Product product)
         {
@@ -19,7 +21,7 @@ namespace VendingMachine.dto
         public override void Use(Product product)
         {
 
-            Console.WriteLine($"{product.Name} - Enjoy your drink!");
+            Console.WriteLine($"{product.Name} - Enjoy your snack!");
         }
     }
 }
