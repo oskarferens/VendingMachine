@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\oskar\\source\\repos\\VendingMachine\\VendingMachine\\VendingMachine.csproj": {}
+    "C:\\Users\\oskar\\Source\\Repos\\VendingMachinefinal\\VendingMachine\\VendingMachine.csproj": {}
   },
   "projects": {
-    "C:\\Users\\oskar\\source\\repos\\VendingMachine\\VendingMachine\\VendingMachine.csproj": {
+    "C:\\Users\\oskar\\Source\\Repos\\VendingMachinefinal\\VendingMachine\\VendingMachine.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\oskar\\source\\repos\\VendingMachine\\VendingMachine\\VendingMachine.csproj",
+        "projectUniqueName": "C:\\Users\\oskar\\Source\\Repos\\VendingMachinefinal\\VendingMachine\\VendingMachine.csproj",
         "projectName": "VendingMachine",
-        "projectPath": "C:\\Users\\oskar\\source\\repos\\VendingMachine\\VendingMachine\\VendingMachine.csproj",
+        "projectPath": "C:\\Users\\oskar\\Source\\Repos\\VendingMachinefinal\\VendingMachine\\VendingMachine.csproj",
         "packagesPath": "C:\\Users\\oskar\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\oskar\\source\\repos\\VendingMachine\\VendingMachine\\obj\\",
+        "outputPath": "C:\\Users\\oskar\\Source\\Repos\\VendingMachinefinal\\VendingMachine\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -60,7 +60,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

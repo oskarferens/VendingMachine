@@ -6136,11 +6136,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\oskar\\source\\repos\\VendingMachine\\VendingMachineTest\\VendingMachineTest.csproj",
+      "projectUniqueName": "C:\\Users\\oskar\\Source\\Repos\\VendingMachinefinal\\VendingMachineTest\\VendingMachineTest.csproj",
       "projectName": "VendingMachineTest",
-      "projectPath": "C:\\Users\\oskar\\source\\repos\\VendingMachine\\VendingMachineTest\\VendingMachineTest.csproj",
+      "projectPath": "C:\\Users\\oskar\\Source\\Repos\\VendingMachinefinal\\VendingMachineTest\\VendingMachineTest.csproj",
       "packagesPath": "C:\\Users\\oskar\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\oskar\\source\\repos\\VendingMachine\\VendingMachineTest\\obj\\",
+      "outputPath": "C:\\Users\\oskar\\Source\\Repos\\VendingMachinefinal\\VendingMachineTest\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -6162,8 +6162,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\oskar\\source\\repos\\VendingMachine\\VendingMachine\\VendingMachine.csproj": {
-              "projectPath": "C:\\Users\\oskar\\source\\repos\\VendingMachine\\VendingMachine\\VendingMachine.csproj"
+            "C:\\Users\\oskar\\Source\\Repos\\VendingMachinefinal\\VendingMachine\\VendingMachine.csproj": {
+              "projectPath": "C:\\Users\\oskar\\Source\\Repos\\VendingMachinefinal\\VendingMachine\\VendingMachine.csproj"
             }
           }
         }
@@ -6215,7 +6215,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

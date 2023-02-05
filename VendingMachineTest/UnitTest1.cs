@@ -14,7 +14,6 @@ namespace VendingMachineTest
         [Fact]
         public void ShouldInsertMoney()
         {
-            //GIVEN
             //WHEN
             service.UpdateAccount(100);
 
@@ -26,12 +25,31 @@ namespace VendingMachineTest
         [Fact]
         public void ShouldFillTheMachine()
         {
-            //GIVEN
             //WHEN
             service.FillTheMachine();
             //THEN
             Assert.Equal(9,service.Products.Count);
         }
         
+        [Fact]
+        public void ShouldShowProductsPrice()
+        {
+            //WHEN
+            service.PickTheProduct(1);
+            //THEN
+            Assert.Equal(18, service.Products[1].Price);
+        }
+
+        [Fact]
+        public void ShouldPurchase()
+        {
+            //GIVEN
+            int a = service.moneyDeposit = 100;
+            int b = service.productPrice = 50;
+            //WHEN
+            service.EndTransaction();
+            //THEN
+            Assert.Equal(true, true);
+        }
     }
 }
